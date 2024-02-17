@@ -7,7 +7,7 @@ body {
 
 .container {
     margin: 0 auto;
-    width: 1700px;
+    max-width: 1700px; /* змінив width на max-width */
     display: flex;
     justify-content: space-between;
 }
@@ -63,7 +63,6 @@ body {
 .menu {
     list-style-type: none;
     padding: 0;
-    text-decoration: none;
 }
 
 .menu li {
