@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
@@ -29,8 +30,7 @@ img {
 header {
     width: 100%; /* Ширина заголовка збігається з шириною вмісту. */
     height: 138px; /* Висота заголовка 138px. */
-    background-image: url('PR3/more/images/header.png'); /* Зображення фону заголовка. */
-    border: 1px solid black; /* Рамка заголовка. */
+    background-image: url('../images/header.png'); /* Зображення фону заголовка. */
     background-size: contain; /* Розмір фонового зображення зберігається пропорційно. */
     background-repeat: no-repeat; /* Фонове зображення не повторюється. */
 }
