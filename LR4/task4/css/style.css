@@ -1,35 +1,34 @@
 .battery {
-    position: relative;
-    width: 150px;
-    height: 50px;
-    background-color: white;
-    margin: 20px;
-    border: 2px solid black;
+  width: 100px;
+  height: 50px;
+  border: 2px solid #000;
+  position: relative;
+  margin-bottom: 20px;
 }
 
-.indicator {
-    position: absolute;
-    width: 20%;
-    height: 100%;
+.level {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
 }
 
-.indicator.red {
-    background-color: #f00;
-    position: absolute;
-    width: 40%;
-    height: 100%;
+.red .level {
+  width: 20%;
+  height: 100%;
+  background-color: red;
 }
 
-.indicator.yellow {
-    background-color: #FFC60B;
-    position: absolute;
-    width: 65%;
-    height: 100%;
+.yellow .level {
+  width: 50%;
+  height: 100%;
+  background-color: yellow;
 }
 
-.indicator.green {
-    background-color: #00A055;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.green .level {
+  width: 75%;
+  height: 100%;
+  background-color: green;
 }

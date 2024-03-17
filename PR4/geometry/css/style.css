@@ -1,0 +1,234 @@
+div {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+#circle {
+    width: 120px;
+    height: 120px;
+    background-color: #ff7f0e;
+    border-radius: 50%;
+}
+
+#square {
+    width: 120px;
+    height: 120px;
+    background-color: #1f77b4;
+}
+
+#rectangle {
+    width: 220px;
+    height: 120px;
+    background-color: #2ca02c;
+}
+
+#oval {
+    width: 200px;
+    height: 100px;
+    background-color: #d62728;
+    border-radius: 50%;
+}
+
+#triangle {
+    width: 0;
+    height: 0;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 140px solid #9467bd;
+}
+
+#triangle_down {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid #8c564b;
+}
+
+#triangle_left {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 100px solid #e377c2;
+    border-bottom: 50px solid transparent;
+}
+
+#triangle_right {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-left: 100px solid #7f7f7f;
+    border-bottom: 50px solid transparent;
+}
+
+#diamond {
+    width: 100px;
+    height: 100px;
+    background-color: #bcbd22;
+    transform: rotate(45deg);
+    transform-origin: 0 100%;
+    margin: 60px 0 10px 310px;
+}
+
+#trapezium {
+    width: 120px;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 120px solid #17becf;
+}
+
+#parallelogram {
+    width: 160px;
+    height: 100px;
+    background-color: #9467bd;
+    transform: skew(30deg);
+}
+
+#pentagon {
+    width: 54px;
+    position: relative;
+    border-width: 50px 18px 0;
+    background-color: #bcbd22;
+    border-color: #277bab transparent;
+    border-style: solid;
+}
+
+#pentagon:before {
+    content: &quot;&quot;;
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: -85px;
+    left: -18px;
+    border-width: 0 45px 35px;
+    border-style: solid;
+    border-color: transparent transparent #277bab;
+}
+
+#hexagon {
+    width: 100px;
+    height: 55px;
+    background: #8c564b;
+    position: relative;
+    margin: 10px auto;
+}
+
+#hexagon:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid #8c564b;
+}
+
+#hexagon:after{
+    content: &quot;&quot;;
+    position: absolute;
+    bottom: -25px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid #8c564b;
+}
+
+
+#octagon {
+    width: 100px;
+    height: 100px;
+    background-color: #17becf;
+    position: relative;
+}
+
+#octagon:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 29px solid #17becf;
+    border-left: 29px solid transparent;
+    border-right: 29px solid transparent;
+    width: 42px;
+    height: 0;
+}
+
+#octagon:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 29px solid #17becf;
+    border-left: 29px solid transparent;
+    border-right: 29px solid transparent;
+    width: 42px;
+    height: 0;
+}
+
+#heart {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform: rotate(-45deg);
+}
+
+#heart:before,
+#heart:after {
+    content: '';
+    width: 50px;
+    height: 80px;
+    background: #d62728;
+    position: absolute;
+    top: 0;
+    border-radius: 50px 50px 0 0;
+}
+
+#heart:before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+#heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+#comment_bubble {
+    width: 160px;
+    height: 100px;
+    position: relative;
+    background-color: #ff7f0e;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+#comment_bubble:before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 20px solid #ff7f0e;
+    border-bottom: 10px solid transparent;
+}
+
+#pacman {
+    width: 0;
+    height: 0;
+    border-top: 70px solid yellow;
+    border-right: 70px solid transparent;
+    border-bottom: 70px solid yellow;
+    border-left: 70px solid yellow;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    border-bottom-left-radius: 70px;
+}
