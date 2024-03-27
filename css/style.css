@@ -15,7 +15,7 @@ body {
 
 .sidebar {
     width: 20%;
-    padding: 20px;
+    padding: 30px;
     background-color: #3F6592;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -76,7 +76,7 @@ hr {
     margin-bottom: 20px;
 }
 
-.work-dates, .course-dates {
+.dates{
     float: right;
     font-style: italic;
     color: #666;

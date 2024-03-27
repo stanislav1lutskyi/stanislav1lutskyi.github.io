@@ -6,7 +6,7 @@
 
 .plan {
     float: left;
-    width: calc(33.33% - 20px); /* Віднімаємо margin-right */
+    width: calc(33.33% - 20px);
     margin-right: 20px;
     background-color: #f9f9f9;
     box-sizing: border-box;
@@ -34,7 +34,14 @@
     padding: 10px;
 }
 
+.text-main strong {
+    font-weight: bold;
+    color: #B6B6B6;
+}
+
 .dots {
+    width: 100%;
+    border-bottom: 2px dotted black;
     text-align: center;
     margin-top: 10px;
 }
@@ -100,3 +107,5 @@
 .medium_button{
     background-color: #C1392B;
 }
+
+
