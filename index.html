@@ -1,118 +1,101 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфоліо</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Портфоліо I Луцький Станіслав</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="#home">Головна</a></li>
+        <li><a href="#portfolio-link">Портфоліо</a></li>
+        <li><a href="tel:+380664008958">Телефон: +38 (066) 400 - 89 - 58</a></li>
+        <li><a href="mailto:stas.business77@gmail.com">Email: stas.business77@gmail.com</a></li>
+      </ul>
+    </nav>
+    <h1>Луцький Станіслав</h1>
+  </header>
+  <section class="container">
+    <aside class="sidebar">
+      <figure>
+        <img src="./img/author.jpg" alt="Profile Picture" class="profile-picture">
+        <figcaption>Профільна фотографія</figcaption>
+      </figure>
+      <section>
+        <p>Особисті дані:</p>
+        <dl>
+          <dt>Ім'я:</dt>
+          <h1>Луцький Станіслав</h1>
+          <dt>Адреса:</dt>
+          <dd>вул. Грушевського, буд. 11</dd>
+          <dt>Телефон:</dt>
+          <dd><a href="tel:+380664008958">+38 (066) 400 - 89 - 58</a></dd>
+          <dt>Email:</dt>
+          <dd><a href="mailto:stas.business77@gmail.com">stas.business77@gmail.com</a></dd>
+          <dt>Дата народження:</dt>
+          <dd><time datetime="2005-10-26">26.10.2005</time></dd>
+        </dl>
+      </section>
+      <section>
+        <h2>Інтереси:</h2>
+        <ul>
+          <li>Криптовалюта</li>
+          <li>Арбітраж валюти</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Мови:</h2>
+        <ul>
+          <li>Українська мова <span class="text-left">Рідна мова</span></li>
+          <li>Англійська мова <span class="text-left">Добре</span></li>
+        </ul>
+      </section>
+    </aside>
+    <main class="content">
+      <section>
+        <h2>Досвід роботи</h2>
+        <p>Офіційно? Не працюю <time>26.10.2005 - по сьогоднішній день</time></p>
+      </section>
+      <section>
+        <h2>Освіта та кваліфікації</h2>
+        <p>Lorem <time><span class="dates">01.01.2022 - 31.12.2022</span></time></p>
+      </section>
+      <section>
+        <h2>Курси</h2>
+        <p>Школа комп'ютерної майстерності <time><span class="dates">01.09.2018 - 20.05.2022</span></time></p>
+      </section>
+      <section>
+        <h2>Навички</h2>
+        <p>Вмію робити щось трохи з HTML5 та CSS, Java, C++</p>
+      </section>
+      <section>
+        <h2 id="portfolio-link">Мої роботи</h2>
+        <div>
+          <h3>Лабораторні роботи</h3>
+          <a href="./LR1/index.html" class="btn">Лабораторна робота 1</a>
+          <a href="#" class="btn">Лабораторна робота 2</a>
+          <a href="./LR3/index.html" class="btn">Лабораторна робота 3</a>
+          <a href="./LR4/index.html" class="btn">Лабораторна робота 4</a>
+          <a href="./LR5/index.html" class="btn">Лабораторна робота 5</a>
+          <a href="./LR6/index.html" class="btn">Лабораторна робота 6</a> 
+        </div>
+        <div>
+          <h3>Практичні роботи</h3>
+          <a href="./PR2/index.html" class="btn">Практична робота 2</a>
+          <a href="./PR3/index.html" class="btn">Практична робота 3</a>
+          <a href="./PR4/index.html" class="btn">Практична робота 4</a>
+          <a href="./PR5/index.html" class="btn">Практична робота 5</a>
+        </div>
+      </section>
+    </main>
+  </section>
+  <footer class="footer">
     <div class="container">
-        <section class="sidebar">
-            <img src="./img/author.jpg" alt="Profile Picture" class="profile-picture">
-            <div class="personal-info">
-                <section>
-                    <h1>Особисті дані:</h1>
-                    <hr>
-                    <dl>
-                        <dt>Ім'я:</dt>
-                        <h2>Луцький Станіслав</h2>
-                        <address>
-                            <dt>Адреса:</dt>
-                            <dd>вул. Грушевського, буд. 11</dd>
-                        </address>
-                        <dt>Телефон:</dt>
-                        <dd>+38 (066) 400 - 89 - 58</dd>
-                        <address>Email:
-                            <dd>stas.business77@gmail.com</dd>
-                        </address>
-                        <dt>Дата народження:</dt>
-                        <time>26.10.2005</time>
-                    </dl>
-                </section>
-            </div>
-            <div class="personal-info">
-                <section>
-                    <h2>Інтереси:</h2>
-                    <hr>
-                    <ul>
-                        <li>Криптовалюта</li>
-                        <li>Арбітраж валюти</li>
-                    </ul>
-                </section>
-            </div>
-            <div class="languages">
-                <section>
-                    <h2>Мови:</h2>
-                    <hr>
-                    <ul>
-                        <li>Українська мова<span class="text-left">Рідна мова</span></li>
-                        <li>Англійська мова<span class="text-left">Добре</span></li>
-                    </ul>
-                </section>
-            </div>
-        </section>
-        <main class="content">
-            <header>
-                <h2>Луцький Станіслав</h2>
-                <nav>
-                    <ul class="menu">
-                        <li><a href="#home">Головна</a></li>
-                        <li><a href="#portfolio">Портфоліо</a></li>
-                        <li><a href="#contact">Контакти</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <section>
-                <h1>Досвід роботи</h1>
-                <hr>
-                <p>Офіційно? Не працюю<span class="dates">26.10.2005 - по сьогоднішній день</span></p>
-            </section>
-            <section>
-                <h2>Освіта та кваліфікації</h2>
-                <hr>
-                <p>Lorem 
-                    <time>
-                        <span class="dates">01.01.2022 - 31.12.2022</span></p>
-                    </time>
-            </section>
-            <section>
-                <h2>Курси</h2>
-                <hr>
-                <p>Школа комп'ютерної майстерності
-                    <time>
-                        <span class="dates">01.09.2018 - 20.05.2022</span>
-                    </time>
-                </p>
-            </section>
-            <section>
-                <h2>Навички</h2>
-                <hr>
-                <p>Вмію робити щось трохи з HTML5 та CSS, Java, C++</p>
-            </section>
-            <section>
-                <hr>
-                <h2>Мої роботи</h2>
-                <hr>
-                <h2>Лабораторні роботи</h2>
-                <hr>
-                <div>
-                    <a href="./LR1/index.html" class="btn">Лабораторна робота 1</a>
-                    <a href="#" class="btn">Лабораторна робота 2</a>
-                    <a href="./LR3/index.html" class="btn">Лабораторна робота 3</a>
-                    <a href="./LR4/index.html" class="btn">Лабораторна робота 4</a>
-                    <a href="./LR5/index.html" class="btn">Лабораторна робота 5</a>
-                </div>
-                <h2>Практичні роботи</h2>
-                <hr>
-                <div class="btn-container">
-                    <a href="./PR2/index.html" class="btn">Практична робота 2</a>
-                    <a href="./PR3/index.html" class="btn">Практична робота 3</a>
-                    <a href="./PR4/index.html" class="btn">Практична робота 4</a>
-                    <a href="./PR5/index.html" class="btn">Практична робота 5</a>
-                </div>
-            </section>
-        </main >
+      <p>&copy; 2024 Луцький Станіслав</p>
     </div>
+  </footer>
 </body>
 </html>

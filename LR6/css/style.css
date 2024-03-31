@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  background: #42322C;
+}
+
+.menu {
+  width: 80%;
+  height: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.image-container {
+  width: 20%;
+  background-image: url(../img/burger.jfif);
+  margin: 10px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-container {
+  width: 95%;
+  padding: 20px;
+  background: black;
+  margin-top: 120%;
+  text-align: center;
+}
+
+.text-container p{
+  color: #F6C517;
+}
+
+.text-price{
+  color: white;
+}
+
+.text-container h2{
+  color: white;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.menu-list {
+  width: 70%;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+
+
+.line {
+  position: relative;
+  margin: 50px auto;
+  width: 150px;
+  height: 1px;
+  background: #ccc;
+}
+
+.line:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+}
