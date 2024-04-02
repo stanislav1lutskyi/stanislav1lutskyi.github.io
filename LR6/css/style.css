@@ -1,100 +1,95 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .container {
-  width: 100%;
-  height: 600px;
-  display: flex;
-  flex-wrap: wrap;
-  background: #42322C;
+    width: 1200px;
+    background-color: #322727;
+    display: flex;
+    align-items: flex-start; /* Вирівнюємо ліву частину по верху */
+    padding: 30px;
+    margin: 0 auto;
+
+}
+.main{
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: flex-start; /* Вирівнюємо ліву частину по верху */
+    padding: 20px;
+    margin-bottom: 40px;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+.left-section {
+    width: 40%; /* Ширина лівої частини */
+    padding-right: 20px; /* Простір між лівою та правою частинами */
 }
 
-.menu {
-  width: 80%;
-  height: 500px;
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  border: 1px solid black;
-  margin: 0 auto;
+.left-section img {
+    width: 400px;
+    height: 350px;
 }
 
-.image-container {
-  width: 20%;
-  background-image: url(../img/burger.jfif);
-  margin: 10px;
+.overlay-block {
+    width: 370px;
+    height: 250px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    border-radius: 10px;
+    top: 270px;
+    left: 550px;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.overlay-block h1, .overlay-block p {
+    text-align: center;
+    color: white;
 }
 
-.text-container {
-  width: 95%;
-  padding: 20px;
-  background: black;
-  margin-top: 120%;
-  text-align: center;
+.overlay-block h1{
+  margin-top: 50px;
 }
 
-.text-container p{
-  color: #F6C517;
+.overlay-block span{
+  color: #FDCA19;
 }
 
-.text-price{
-  color: white;
+.right-section {
+    border-radius: 20px;
+    padding: 20px;
+    width: 60%; /* Ширина правої частини */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.text-container h2{
-  color: white;
+.right-section h2{
+  position: absolute;
+  top: 50px;
 }
 
-h2 {
-  margin-top: 0;
+.menu-item {
+    background-color: white; /* Фон кожного пункту меню */
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 10px;
+    text-align: center;
+    width: 200px; /* Ширина кожного пункту меню */
 }
 
-h3 {
-  text-align: center;
+.menu-item h3{
+    margin: 0;
 }
 
-p {
-  margin-bottom: 0;
+.price{
+
+  color: gray;
+  margin-top: 2px;
 }
-
-.menu-list {
-  width: 70%;
-  margin: 10px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-
 
 .line {
   position: relative;
-  margin: 50px auto;
   width: 150px;
   height: 1px;
   background: #ccc;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .line:after {
@@ -106,4 +101,20 @@ li {
   width: 10px;
   height: 10px;
   background: #ccc;
+}
+
+.all-menu-button {
+    position: absolute;
+    top: 450px;
+    right: 400px;
+    padding: 10px 20px;
+    background-color: black ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.all-menu-button:hover {
+    background-color: #0056b3;
 }
