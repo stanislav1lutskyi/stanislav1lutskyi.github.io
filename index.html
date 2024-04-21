@@ -1,109 +1,198 @@
 <!DOCTYPE html>
-<html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Портфоліо I Луцький Станіслав</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="css/reset.css" rel="stylesheet">
-  <script src="https://use.fontawesome.com/0ca06f29a6.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <nav>
-      <ul class="menu">
-        <li><a href="#home">Головна</a></li>
-        <li><a href="#portfolio-link">Портфоліо</a></li>
-        <li><a href="tel:+380664008958">Телефон: +38 (066) 400 - 89 - 58</a></li>
-        <li><a href="mailto:stas.business77@gmail.com">Email: stas.business77@gmail.com</a></li>
-      </ul>
-    </nav>
-    <h1>Луцький Станіслав</h1>
-  </header>
-  <section class="container">
-    <aside class="sidebar">
-      <figure>
-        <img src="./img/author.jpg" alt="Profile Picture" class="profile-picture">
-        <figcaption>Профільна фотографія</figcaption>
-      </figure>
-      <section>
-        <p>Особисті дані:</p>
-        <dl>
-          <dt>Ім'я:</dt>
-          <h1>Луцький Станіслав</h1>
-          <dt>Адреса:</dt>
-          <dd>вул. Грушевського, буд. 11</dd>
-          <dt>Телефон:</dt>
-          <dd><a href="tel:+380664008958">+38 (066) 400 - 89 - 58</a></dd>
-          <dt>Email:</dt>
-          <dd><a href="mailto:stas.business77@gmail.com">stas.business77@gmail.com</a></dd>
-          <dt>Дата народження:</dt>
-          <dd><time datetime="2005-10-26">26.10.2005</time></dd>
-        </dl>
-      </section>
-      <section>
-        <h2>Інтереси:</h2>
-        <ul>
-          <li>Криптовалюта</li>
-          <li>Арбітраж валюти</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Мови:</h2>
-        <ul>
-          <li>Українська мова <span class="text-left">Рідна мова</span></li>
-          <li>Англійська мова <span class="text-left">Добре</span></li>
-        </ul>
-      </section>
-    </aside>
-    <main class="content">
-      <section>
-        <h2>Досвід роботи</h2>
-        <p>Офіційно? Не працюю <time>26.10.2005 - по сьогоднішній день</time></p>
-      </section>
-      <section>
-        <h2>Освіта та кваліфікації</h2>
-        <p>Lorem <time><span class="dates">01.01.2022 - 31.12.2022</span></time></p>
-      </section>
-      <section>
-        <h2>Курси</h2>
-        <p>Школа комп'ютерної майстерності <time><span class="dates">01.09.2018 - 20.05.2022</span></time></p>
-      </section>
-      <section>
-        <h2>Навички</h2>
-        <p>Вмію робити щось трохи з HTML5 та CSS, Java, C++</p>
-      </section>
-      <section id="portfolio-link">
-        <h2>Мої роботи</h2>
-        <div>
-          <h3>Лабораторні роботи</h3>
-          <a href="./LR1/index.html" class="btn">Лабораторна робота 1</a>
-          <a href="#" class="btn">Лабораторна робота 2</a>
-          <a href="./LR3/index.html" class="btn">Лабораторна робота 3</a>
-          <a href="./LR4/index.html" class="btn">Лабораторна робота 4</a>
-          <a href="./LR5/index.html" class="btn">Лабораторна робота 5</a>
-          <a href="./LR6/index.html" class="btn">Лабораторна робота 6</a>
-          <a href="./LR7/index.html" class="btn">Лабораторна робота 7</a>
-          <a href="./LR8/index.html" class="btn">Лабораторна робота 8</a> 
-        </div>
-        <div>
-          <h3>Практичні роботи</h3>
-          <a href="./PR2/index.html" class="btn">Практична робота 2</a>
-          <a href="./PR3/index.html" class="btn">Практична робота 3</a>
-          <a href="./PR4/index.html" class="btn">Практична робота 4</a>
-          <a href="./PR5/index.html" class="btn">Практична робота 5</a>
-        </div>
-      </section>
-    </main>
-  </section>
-  <footer>
-    <div class="social">
-      <a href="https://www.facebook.com/profile.php?id=100075737656047"><i class="fa fa-facebook-official"></i></a>
-      <a href="#"><i class="fa fa-instagram"></i></a>
-      <a href="https://t.me/sll070"><i class="fa fa-telegram"></i></i></a>
-      <p class="copyright">©2024 Луцький Станіслав</p>
-    </div>
-  </footer>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Portfolio website complete</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">Stanislav</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Stanislav</span><br> KEP Student</h1>
+
+                    <a href="https://t.me/sll070" class="button">Contact</a>
+                </div>
+
+                <div class="home__social">
+                    <a href="" class="home__social-icon"><i class='bx bxl-instagram'></i></a>
+                    <a href="" class="home__social-icon"><i class='bx bxl-facebook'></i></a>
+                    <a href="https://t.me/sll070" class="home__social-icon"><i class='bx bxl-telegram' ></i></a>
+                    <a href="https://github.com/stanislav1lutskyi" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                </div>
+
+                <div class="home__img">
+                    <img src="assets/img/about.jpg" alt="" class="home__blob-img">
+                </div>
+            </section>
+
+            <!--===== ABOUT =====-->
+            <section class="about section " id="about">
+                <h2 class="section-title">About</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="assets/img/about.jpg" alt="">
+                    </div>
+                    
+                    <div>
+                        <h2 class="about__subtitle">I'am Stanislav</h2>
+                        <p class="about__text">Привіт! я - студент третього курсу коледжу. Мій шлях навчання пов'язаний з вивченням захопливого світу криптовалют. У свої 18 років я вже поглиблюю свої знання про крипторинок, вивчаючи його та розвиваючи власні навички. Моя особлива зацікавленість - арбітраж валют, де я займаюся вивченням та аналізом різних валютних пар з метою здійснення вигідних угод. Живу я в мальовничому місті Івано-Франківськ, де кожен день для мене нова можливість вчитися, розвиватися та відкривати для себе нові горизонти.</p>           
+                    </div>                                   
+                </div>
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">Skills</h2>
+
+                <div class="skills__container bd-grid">          
+                    <div>
+                        <h2 class="skills__subtitle">Мої навички</h2>
+                        <p class="skills__text">
+                            Моя робота в області арбітражу валют вимагає від мене розвинених навичок аналізу, стратегічного мислення та швидкого прийняття рішень. Я маю вміння проводити глибокий фундаментальний та технічний аналіз ринку, що дозволяє мені здійснювати ефективні операції купівлі-продажу криптовалют.
+                        </p>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-html5 skills__icon'></i>
+                                <span class="skills__name">HTML5</span>
+                            </div>
+                            <div class="skills__bar skills__html">
+
+                            </div>
+                            <div>
+                                <span class="skills__percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-css3 skills__icon'></i>
+                                <span class="skills__name">CSS3</span>
+                            </div>
+                            <div class="skills__bar skills__css">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">75%</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bxl-javascript skills__icon' ></i>
+                                <span class="skills__name">JAVASCRIPT</span>
+                            </div>
+                            <div class="skills__bar skills__js">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage">15%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>              
+                        <img src="assets/img/work3.jpg" alt="" class="skills__img">
+                    </div>
+                </div>
+            </section>
+
+            <!--===== WORK =====-->
+            <section class="work section" id="work">
+                <h2 class="section-title">Лабораторні роботи</h2>
+
+                <div class="work__container bd-grid">
+                    <a href="LR1/index.html" class="work__img">
+                        <img src="assets/img/lr1.png" alt="">
+                    </a>
+                    <a href="" class="work__img">
+                        <img src="assets/img/lr2.png" alt="">
+                    </a>
+                    <a href="LR3/index.html" class="work__img">
+                        <img src="assets/img/lr3.png" alt="">
+                    </a>
+                    <a href="LR4/index.html" class="work__img">
+                        <img src="assets/img/lr4.png" alt="">
+                    </a>
+                    <a href="LR5/index.html" class="work__img">
+                        <img src="assets/img/lr5.png" alt="">
+                    </a>
+                    <a href="LR6/index.html" class="work__img">
+                        <img src="assets/img/lr6.png" alt="">
+                    </a>
+                    <a href="LR7/index.html" class="work__img">
+                        <img src="assets/img/lr7.png" alt="">
+                    </a>
+                    <a href="LR1/index.html" class="work__img">
+                        <img src="assets/img/lr8.png" alt="">
+                    </a>
+                </div>
+            </section>
+            <section class="work section" id="work">
+                <h2 class="section-title">Практичні роботи</h2>
+
+                <div class="work__container bd-grid">
+                    <a href="PR2/index.html" class="work__img">
+                        <img src="assets/img/pr2.png" alt="">
+                    </a>
+                    <a href="PR3/index.html" class="work__img">
+                        <img src="assets/img/pr3.png" alt="">
+                    </a>
+                    <a href="PR4/index.html" class="work__img">
+                        <img src="assets/img/pr4.png" alt="">
+                    </a>
+                    <a href="PR5/index.html" class="work__img">
+                        <img src="assets/img/pr5.png" alt="">
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">Stanislav</p>
+            <div class="footer__social">
+                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                <a href="https://t.me/sll070" class="footer__icon"><i class='bx bxl-telegram' ></i></a>
+                <a href="https://github.com/stanislav1lutskyi" class="footer__icon"><i class='bx bxl-github' ></i></a>
+            </div>
+            <p class="footer__copy">&#169; All rigths reserved</p>
+        </footer>
+
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
