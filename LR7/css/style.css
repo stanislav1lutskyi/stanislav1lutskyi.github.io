@@ -1,0 +1,225 @@
+/* Загальні стилі */
+* {
+    font-family: "Adrianna", sans-serif;
+}
+
+/* Заголовки */
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Загальні стилі для елементів */
+.category, .name, .on-sale-soon-text, .sale-button-text, .price {
+    margin-bottom: 50px;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* Стилі для категорій */
+.category {
+    color: rgb(116, 115, 115);
+}
+
+/* Стилі для назв */
+.name {
+    color: #009de1;
+    font-weight: bold;
+}
+
+/* Стилі для тексту "Coming Soon" */
+.on-sale-soon-text {
+    color: white;
+    text-align: center;
+}
+
+/* Стилі для тексту кнопки "Sale" та ціни */
+.sale-button-text, .price {
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+/* Стилі для фотографій */
+.photo {
+    width: 100%;
+    height: 200px;
+}
+
+/* Стилі для карток товарів */
+.card {
+    border: 1px solid rgb(186, 183, 183);
+    width: 80%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    flex: left;
+    background-color: rgb(243, 243, 243);
+}
+
+/* Роздільна лінія */
+.card hr {
+    width: 90%;
+    height: 1px;
+    border: none;
+    border-top: 1px solid rgb(186, 183, 183);
+    margin-bottom: 30px;
+}
+
+/* Стилі для блоків фотографій */
+.photo-block {
+    background-color: brown;
+    width: 70%;
+    height: 300px;
+    background: #000;
+    margin-bottom: 15px;
+}
+
+/* Стилі для контейнера */
+.wrap {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Стилі для тексту "Soon" */
+.on-sale-soon {
+    width: 50%;
+    padding: 11px 0;
+    background: #cc349c;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Стилі для фото в режимі "Soon" */
+.photo-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Стилі для кнопки "Sale" */
+.sale-button {
+    width: 50%;
+    height: 70px;
+    text-align: center;
+    margin-top: 40px;
+    background-color: #f0e524;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Стилі для попередньої ціни */
+.old-price {
+    text-decoration: line-through;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Стилі для ціни */
+.price {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Стилі для ціни "Soon" */
+.price-on-sale-soon {
+    color: transparent;
+}
+
+/* Стилі для фото та назви товару "Soon" */
+.photo-on-sale-soon, .name-on-sale-soon {
+    cursor: text;
+}
+
+/* Підсвічення при наведенні */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 0, 128, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+/* Вікно повідомлень */
+.message-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+/* Закрити */
+.close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 48px;
+}
+
+/* Кнопки перемикання */
+.swipe {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(186, 183, 183);
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    top: 117px;
+    color: rgb(186, 183, 183);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Кнопки перемикання вліво */
+.swipe-left {
+    left: -25px;
+}
+
+/* Кнопки перемикання вправо */
+.swipe-right {
+    right: -25px;
+}
+
+/* Мітка "Новинка" */
+.label {
+    position: absolute;
+    border-radius: 50%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* Мітка "Новинка" на товарах */
+.new {
+    border: 2px solid #85b425;
+    background-color: #85b425;
+    top: -50px;
+    padding: 40px 6px;
+    right: 76%;
+}
+
+/* Мітка "Топ продажів" */
+.top-sale {
+    background-color: #009de1;
+    padding: 30px 1px;
+    top: -50px;
+    right: 60px;
+}
