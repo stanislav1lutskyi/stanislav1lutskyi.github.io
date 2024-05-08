@@ -1,6 +1,10 @@
 /*Весь код захищений від @sll070, доступ безкоштовний*/
+/* Загальні стилі */
 body {
     font-family: Raleway, Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 p {
     font-size: 14px;
@@ -28,18 +32,17 @@ h2, h3 {
 .container {
     width: 90%;
     max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .brand {
     font-size: 30px;
+    text-decoration: none;
 }
 
 .menu {
     padding-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .menu li {
@@ -58,9 +61,11 @@ img {
     height: auto;
 }
 
+/* Шапка */
 header {
     background-color: #fff;
     padding-top: 30px;
+    overflow: hidden;
 }
 
 header .brand {
@@ -82,16 +87,14 @@ header .menu li a {
     color: #aaa;
 }
 
+/* Jumbotron */
 .jumbotron {
     background-image: url(../img/jumbotron.jpg);
     background-size: cover;
-    background-position: 0 0;
+    background-position: center;
     background-repeat: no-repeat;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    min-height: 250px;
+    padding: 80px 0;
     text-align: center;
-    clear: both;
 }
 
 .jumbotron .button {
@@ -106,41 +109,48 @@ header .menu li a {
     border-radius: 30px;
 }
 
-.services .service {
-    width: 33.333333%;
-    float: left;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    box-sizing: border-box;
-}
-
+/* Послуги */
 .services {
     padding-top: 50px;
     text-align: center;
 }
 
-.services .fa {
-    color: #979797;
-    margin-bottom: 15px;
+.services h2 {
+    font-size: 28px;
+    margin-bottom: 50px;
 }
 
+.services .service {
+    width: 33.333333%;
+    float: left;
+    padding: 0 15px;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+}
+
+.services .fa {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #979797;
+}
+
+/* Блог */
 .blog {
     clear: both;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 0;
     background-color: #fcfcfc;
 }
 
 .blog h2 {
+    font-size: 28px;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .blog .post {
-    padding-top: 30px;
     display: inline-block;
     clear: both;
+    margin-bottom: 50px;
 }
 
 .blog .post img {
@@ -148,13 +158,10 @@ header .menu li a {
     margin-right: 30px;
 }
 
+/* Про нас */
 .about {
     background-color: #f9f9f9;
     padding: 50px 0;
-}
-
-.about .container {
-    text-align: center;
 }
 
 .about h2 {
@@ -170,31 +177,61 @@ header .menu li a {
     margin-bottom: 20px;
 }
 
+/* Підвал */
 footer {
-    clear: both;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 0;
     text-align: center;
     background-color: #38404b;
 }
+
 footer .brand {
     color: #bcc9dd;
+    margin-bottom: 20px;
 }
+
 footer .menu li {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px;
 }
+
 footer .menu li a {
     color: #bcc9dd;
 }
+
 footer .menu {
     display: inline-block;
     margin-top: 30px;
     margin-bottom: 15px;
 }
+
 footer .copyright {
     font-size: 12px;
     color: #eee;
 }
+
+/* Медіа запити */
+@media only screen and (max-width: 414px) {
+    .container, .menu li, .menu li a, .services .service, .blog .post img {
+        width: 100%;
+        max-width: 100%;
+        float: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 415px) and (max-width: 768px) {
+    .container, .menu li, .menu li a, .services .service, .blog .post img {
+        width: 100%;
+        max-width: 100%;
+        float: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .services .service {
+        width: 50%;
+    }
+}
+
 
 /*Весь код захищений від @sll070, доступ безкоштовний*/
