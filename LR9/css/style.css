@@ -208,30 +208,36 @@ footer .copyright {
     color: #eee;
 }
 
-/* Медіа запити */
-@media only screen and (max-width: 414px) {
-    .container, .menu li, .menu li a, .services .service, .blog .post img {
-        width: 100%;
-        max-width: 100%;
-        float: none;
-        margin: 0;
-        padding: 0;
-    }
-}
+/* Додав адаптивні стилі */
+    @media only screen and (max-width: 768px) {
+        .container {
+            width: 95%; /* Зміна ширини контейнера для мобільного перегляду */
+        }
+        .menu {
+            float: none; /* Видалення плаваючості для мобільного перегляду */
+            margin-top: 15px; /* Зміна відступу для мобільного перегляду */
+        }
 
-@media only screen and (min-width: 415px) and (max-width: 768px) {
-    .container, .menu li, .menu li a, .services .service, .blog .post img {
-        width: 100%;
-        max-width: 100%;
-        float: none;
-        margin: 0;
-        padding: 0;
+        .menu li {
+            float: none; /* Видалення плаваючості для мобільного перегляду */
+            display: inline-block; /* Зміна властивості для мобільного перегляду */
+            margin-left: 10px; /* Зміна відступу для мобільного перегляду */
+            margin-right: 10px; /* Зміна відступу для мобільного перегляду */
+        }
+
+        .services .service {
+            width: 100%; /* Зміна ширини для мобільного перегляду */
+        }
+
+        .jumbotron .button {
+            margin-top: 20px; /* Зміна відступу для мобільного перегляду */
+        }
     }
 
-    .services .service {
-        width: 50%;
-    }
-}
-
+        @media screen and (max-width: 1024px) {
+            header .brand, footer .brand {
+                font-size: 24px;
+            }
+        }
 
 /*Весь код захищений від @sll070, доступ безкоштовний*/
