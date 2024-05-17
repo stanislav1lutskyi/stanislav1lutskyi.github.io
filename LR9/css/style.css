@@ -209,35 +209,25 @@ footer .copyright {
 }
 
 /* Додав адаптивні стилі */
-    @media only screen and (max-width: 768px) {
-        .container {
-            width: 95%; /* Зміна ширини контейнера для мобільного перегляду */
-        }
-        .menu {
-            float: none; /* Видалення плаваючості для мобільного перегляду */
-            margin-top: 15px; /* Зміна відступу для мобільного перегляду */
-        }
+/* Media Queries */
 
-        .menu li {
-            float: none; /* Видалення плаваючості для мобільного перегляду */
-            display: inline-block; /* Зміна властивості для мобільного перегляду */
-            margin-left: 10px; /* Зміна відступу для мобільного перегляду */
-            margin-right: 10px; /* Зміна відступу для мобільного перегляду */
-        }
-
-        .services .service {
-            width: 100%; /* Зміна ширини для мобільного перегляду */
-        }
-
-        .jumbotron .button {
-            margin-top: 20px; /* Зміна відступу для мобільного перегляду */
-        }
+@media (max-width: 575px) {
+    .services .service {
+        width: 100%;
+        float: none;
     }
-
-        @media screen and (max-width: 1024px) {
-            header .brand, footer .brand {
-                font-size: 24px;
-            }
-        }
+    .blog .post img {
+        float: none;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .blog .post {
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
 
 /*Весь код захищений від @sll070, доступ безкоштовний*/
