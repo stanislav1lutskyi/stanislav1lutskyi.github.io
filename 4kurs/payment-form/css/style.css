@@ -1,0 +1,161 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 420px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header, .billing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.title-right {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.billing-header {
+    font-size: 13px;
+    color: #555;
+}
+
+.billing-monthly {
+    color: #333;
+    font-weight: bold;
+}
+
+.section {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #f9fafc;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    flex: 0 0 90px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    flex: 1;
+    padding: 10px;
+    border: none; /* Встановлюємо без рамки */
+    font-size: 14px;
+    outline: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    background-color: transparent;
+}
+
+.inline-fields {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.inline-fields .form-group {
+    flex: 1;
+}
+
+.inline-fields .form-group input {
+    width: 100%;
+}
+
+.card-input input {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+}
+
+input:focus {
+    box-shadow: none; /* Видаляємо будь-яке підсвічування при фокусі */
+}
+
+.promo-code {
+    font-size: 13px;
+    color: #007bff;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.note {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    padding: 12px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 48%;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.start-trial-btn {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 48%;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+    background-color: #f4f4f4;
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.start-trial-btn:hover {
+    background-color: #0056b3;
+}
