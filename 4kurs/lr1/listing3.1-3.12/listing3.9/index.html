@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав ПІ21-03</title>
+</head>
+<body>
+    <script>
+        // Функція для відображення діалогового вікна confirm
+        function showConfirmDialog() {
+            // Відображення діалогового вікна з кнопками "Ок" і "Відміна"
+            var userChoice = confirm('Ви хочете продовжити?');
+
+            // Перевірка, яка кнопка була натиснута
+            if (userChoice) {
+                alert('Ви натиснули "Ок".');
+            } else {
+                alert('Ви натиснули "Відміна".');
+            }
+        }
+
+        // Виклик функції при завантаженні сторінки
+        showConfirmDialog();
+    </script>
+</body>
+</html>

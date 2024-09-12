@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Луцький Станіслав ПІ21-03</title>
+    <script>
+        function requestUserInfo() {
+            const userInfo = prompt("Будь ласка, введіть інформацію:"); // Запит інформації у користувача
+            if (userInfo !== null) { // Перевірка, чи користувач не натиснув "Відміна"
+                alert(`Ви ввели: ${userInfo}`); // Виведення введеної інформації в діалоговому вікні
+            }
+        }
+    </script>
+</head>
+<body bgcolor="white" onload="requestUserInfo();">
+    <h1>JavaScript Test</h1>
+</body>
+</html>

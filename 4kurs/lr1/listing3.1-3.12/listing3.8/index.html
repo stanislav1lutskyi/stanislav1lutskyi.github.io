@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав ПІ21-03</title>
+</head>
+<body>
+    <script>
+        // Функція для визначення пори року за номером місяця
+        function getSeason() {
+            // Запит номера місяця у користувача
+            var month = parseInt(prompt('Введіть номер місяця (від 1 до 12):'));
+
+            // Перевірка, чи введене число в допустимому діапазоні
+            if (isNaN(month) || month < 1 || month > 12) {
+                alert('Будь ласка, введіть правильний номер місяця (від 1 до 12).');
+                return;
+            }
+
+            // Визначення пори року
+            var season;
+            if (month >= 3 && month <= 5) {
+                season = 'Весна';
+            } else if (month >= 6 && month <= 8) {
+                season = 'Літо';
+            } else if (month >= 9 && month <= 11) {
+                season = 'Осінь';
+            } else {
+                season = 'Зима';
+            }
+
+            // Виведення результату у вікні браузера
+            alert('Пора року: ' + season);
+        }
+
+        // Виклик функції при завантаженні сторінки
+        getSeason();
+    </script>
+</body>
+</html>

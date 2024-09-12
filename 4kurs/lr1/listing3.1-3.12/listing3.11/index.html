@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав ПІ21-03</title>
+</head>
+<body>
+    <script>
+        function collectNames() {
+            var students = [];
+            var lastName, firstName;
+            
+            // Запит прізвищ та імен до натискання кнопки "Відміна"
+            while (true) {
+                lastName = prompt('Введіть прізвище учня (натисніть "Відміна" для завершення):');
+                if (lastName === null) break; // Вихід з циклу при натисканні "Відміна"
+                
+                firstName = prompt('Введіть ім\'я учня:');
+                if (firstName === null) break; // Вихід з циклу при натисканні "Відміна"
+                
+                // Додавання інформації про учня до масиву
+                students.push(lastName + ' ' + firstName);
+            }
+
+            // Формування повідомлення для відображення
+            var message = 'Список учнів:\n' + students.join('\n');
+            
+            // Виведення списку учнів у вікні браузера
+            if (students.length > 0) {
+                alert(message);
+            } else {
+                alert('Не було введено жодного учня.');
+            }
+        }
+
+        // Виклик функції при завантаженні сторінки
+        collectNames();
+    </script>
+</body>
+</html>

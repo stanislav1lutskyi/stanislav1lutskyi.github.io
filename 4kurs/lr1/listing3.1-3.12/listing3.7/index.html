@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав ПІ21-03</title>
+</head>
+<body>
+    <script>
+        // Функція для запиту двох чисел та знаходження найбільшого
+        function findLargestNumber() {
+            // Запит числа у користувача
+            var num1 = parseFloat(prompt('Введіть перше число:'));
+            var num2 = parseFloat(prompt('Введіть друге число:'));
+
+            // Перевірка, чи введені значення є числами
+            if (isNaN(num1) || isNaN(num2)) {
+                alert('Будь ласка, введіть дійсні числа.');
+                return;
+            }
+
+            // Знаходження найбільшого числа
+            var largest = num1 > num2 ? num1 : num2;
+
+            // Виведення результату у вікні браузера
+            alert('Найбільше з чисел: ' + largest);
+        }
+
+        // Виклик функції при завантаженні сторінки
+        findLargestNumber();
+    </script>
+</body>
+</html>

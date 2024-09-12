@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав ПІ21-03</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function generateMultiplicationTable() {
+            var table = '<table>';
+            table += '<tr><th>*</th>';
+
+            // Створення заголовків стовпців
+            for (var i = 1; i <= 10; i++) {
+                table += '<th>' + i + '</th>';
+            }
+            table += '</tr>';
+
+            // Заповнення таблиці множення
+            for (var row = 1; row <= 10; row++) {
+                table += '<tr>';
+                table += '<th>' + row + '</th>';
+                for (var col = 1; col <= 10; col++) {
+                    table += '<td>' + (row * col) + '</td>';
+                }
+                table += '</tr>';
+            }
+
+            table += '</table>';
+
+            // Виведення таблиці у вікні браузера
+            document.body.innerHTML = table;
+        }
+
+        // Виклик функції при завантаженні сторінки
+        generateMultiplicationTable();
+    </script>
+</body>
+</html>

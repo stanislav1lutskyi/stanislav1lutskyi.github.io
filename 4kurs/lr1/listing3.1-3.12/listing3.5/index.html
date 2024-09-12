@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав ПІ21-03</title>
+    <style>
+        /* Додайте стиль для посилання */
+        a {
+            text-decoration: underline;
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>Наведіть курсор на <a id="hoverLink">це посилання</a> для введення інформації.</p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var link = document.getElementById('hoverLink');
+            
+            link.addEventListener('mouseover', function() {
+                var userInput = prompt('Введіть інформацію:');
+                if (userInput) {
+                    alert('Введена інформація: ' + userInput);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
