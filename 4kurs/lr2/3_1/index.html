@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав ПІ21-03</title>
+    <script>
+        function logName() {
+            console.log("Впишіть сюди своє ім'я");
+        }
+
+        function logChoice() {
+            const iceCream = document.getElementById('iceCream').checked;
+            const chocolate = document.getElementById('chocolate').checked;
+            if (iceCream) {
+                console.log("Ви обрали морозиво");
+            } else if (chocolate) {
+                console.log("Ви обрали шоколад");
+            }
+        }
+
+        function submitForm() {
+            alert("Дякуємо за участь в опитуванні!");
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="submitForm(); return false;">
+        <label for="name">Ім'я:</label>
+        <input type="text" id="name" name="name" onfocus="logName()"><br><br>
+
+        <label>Що вам більше подобається?</label><br>
+        <input type="radio" id="iceCream" name="choice" value="iceCream" onclick="logChoice()">
+        <label for="iceCream">Морозиво</label><br>
+        <input type="radio" id="chocolate" name="choice" value="chocolate" onclick="logChoice()">
+        <label for="chocolate">Шоколад</label><br><br>
+
+        <button type="submit">Відправити</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав ПІ21-03</title>
+    <style>
+        img {
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+    <script>
+        let currentImageIndex = 0;
+        const images = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThogzdBmZr1f3ntY_pd0hpTKH0Vu1QQh-ddQ&s", "https://play-lh.googleusercontent.com/L3w73ZSvHAU3C6PmPWeuqKEHe67igSj5Ahovxlf0vBSdWi-31_PrLbHBHoSwmzAVzw", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYr3xJCYUsk97x67SSubp3bdVinbMuMpGjRA&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu-jwFZ5RRZqjl0LuVwyR16cFIJgEHtsFfag&s"];
+
+        function changeImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            document.getElementById("slideshow").src = images[currentImageIndex];
+        }
+    </script>
+</head>
+<body>
+    <img id="slideshow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThogzdBmZr1f3ntY_pd0hpTKH0Vu1QQh-ddQ&s" alt="Слайд-шоу">
+    <br><br>
+    <button onclick="changeImage()">Наступне зображення</button>
+</body>
+</html>
