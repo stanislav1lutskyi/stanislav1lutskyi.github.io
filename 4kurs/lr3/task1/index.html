@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1: Об'єкт книги з додатковим функціоналом</title>
+    <script>
+        let book = {
+            title: "Harry Potter and Sorcerer's Stone",
+            author: "J.K. Rowling",
+            year: 1997,
+            isRead: true,
+            markAsRead: function() {
+                this.isRead = true;
+            },
+            bookInfo: function() {
+                console.log(`Назва: ${this.title}, Автор: ${this.author}, Рік видання: ${this.year}, Прочитана: ${this.isRead ? 'Так' : 'Ні'}`);
+            }
+        };
+
+        function updateBookStatus() {
+            book.bookInfo();
+            book.isRead = !book.isRead;
+            book.bookInfo();
+        }
+
+        function markAsRead() {
+            book.markAsRead();
+            book.bookInfo();
+        }
+    </script>
+</head>
+<body>
+    <h1>Завдання 1: Робота з об'єктами</h1>
+    <button onclick="updateBookStatus()">Показати інформацію про книгу і змінити статус</button>
+    <button onclick="markAsRead()">Позначити книгу як прочитану</button>
+</body>
+</html>

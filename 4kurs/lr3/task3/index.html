@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3: Робота з методами масивів</title>
+    <script>
+        let library = [
+            {title: "Harry Potter and Sorcerer's Stone", author: "J.K. Rowling", year: 1997, isRead: true, markAsRead: function() { this.isRead = true; } },
+            {title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937, isRead: false, markAsRead: function() { this.isRead = true; } },
+            {title: "1984", author: "George Orwell", year: 1949, isRead: true, markAsRead: function() { this.isRead = true; } },
+            {title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925, isRead: false, markAsRead: function() { this.isRead = true; } }
+        ];
+
+        function sortLibrary() {
+            library.sort((a, b) => a.year - b.year);
+            console.log("Відсортований масив:", library);
+        }
+
+        function filterUnreadBooks() {
+            let unreadBooks = library.filter(book => !book.isRead);
+            console.log("Непрочитані книги:", unreadBooks);
+        }
+
+        function findTolkienBook() {
+            let tolkienBook = library.find(book => book.author === "J.R.R. Tolkien");
+            console.log("Книга, написана J.R.R. Tolkien:", tolkienBook);
+        }
+
+        function calculateAverageYear() {
+            if (library.length === 0) return 0;
+            let totalYears = library.reduce((total, book) => total + book.year, 0);
+            let averageYear = totalYears / library.length;
+            console.log(`Середній рік видання: ${Math.round(averageYear)}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Завдання 3: Робота з методами масивів</h1>
+    <button onclick="sortLibrary()">Сортувати книги за роком</button>
+    <button onclick="filterUnreadBooks()">Показати непрочитані книги</button>
+    <button onclick="findTolkienBook()">Знайти книгу J.R.R. Tolkien</button>
+    <button onclick="calculateAverageYear()">Обчислити середній рік видання</button>
+</body>
+</html>

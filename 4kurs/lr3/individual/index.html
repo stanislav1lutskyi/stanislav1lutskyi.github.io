@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Колекція марок</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        let stampCollection = [
+            {country: "Україна", year: 1992, value: 5, theme: "історія", isTraded: false, markAsTraded: function() { this.isTraded = true; }},
+            {country: "США", year: 1965, value: 10, theme: "спорт", isTraded: true, markAsTraded: function() { this.isTraded = true; }},
+            {country: "Франція", year: 1980, value: 3, theme: "культура", isTraded: false, markAsTraded: function() { this.isTraded = true; }}
+        ];
+
+        function displayStampCollection() {
+            let output = '';
+            stampCollection.forEach((stamp, index) => {
+                output += `Марка №${index + 1}: Країна: ${stamp.country}, Рік: ${stamp.year}, Номінал: ${stamp.value}, Тема: ${stamp.theme}, Обміняна: ${stamp.isTraded ? "Так" : "Ні"}<br>`;
+            });
+            document.getElementById('stampDisplay').innerHTML = output;
+        }
+
+        function addNewStamp(event) {
+            event.preventDefault();
+            let country = document.getElementById('country').value;
+            let year = parseInt(document.getElementById('year').value);
+            let value = parseFloat(document.getElementById('value').value);
+            let theme = document.getElementById('theme').value;
+            let isTraded = document.getElementById('isTraded').checked;
+
+            if (country && year && value && theme) {
+                stampCollection.push({
+                    country, 
+                    year, 
+                    value, 
+                    theme, 
+                    isTraded,
+                    markAsTraded: function() { this.isTraded = true; }
+                });
+                displayStampCollection();
+                document.getElementById('stampForm').reset();
+            } else {
+                alert("Будь ласка, введіть коректні дані.");
+            }
+        }
+
+        function markStampAsTraded(index) {
+            if (stampCollection[index]) {
+                stampCollection[index].markAsTraded();
+                displayStampCollection();
+            } else {
+                alert("Марки з таким номером немає.");
+            }
+        }
+
+        function calculateAverageYear() {
+            if (stampCollection.length === 0) return 0;
+            let totalYears = stampCollection.reduce((total, stamp) => total + stamp.year, 0);
+            let averageYear = totalYears / stampCollection.length;
+            alert(`Середній рік випуску марок: ${Math.round(averageYear)}`);
+        }
+
+        function sortStampsByYear() {
+            stampCollection.sort((a, b) => a.year - b.year);
+            displayStampCollection();
+        }
+
+        function filterUntradedStamps() {
+            let untradedStamps = stampCollection.filter(stamp => !stamp.isTraded);
+            let output = 'Необміняні марки:<br>';
+            untradedStamps.forEach((stamp, index) => {
+                output += `Марка №${index + 1}: Країна: ${stamp.country}, Рік: ${stamp.year}, Номінал: ${stamp.value}, Тема: ${stamp.theme}<br>`;
+            });
+            document.getElementById('untradedStamps').innerHTML = output;
+        }
+    </script>
+</head>
+<body>
+    <h1>Колекція марок</h1>
+
+    <form id="stampForm" onsubmit="addNewStamp(event)">
+        <label for="country">Країна:</label>
+        <input type="text" id="country" required><br><br>
+        
+        <label for="year">Рік випуску:</label>
+        <input type="number" id="year" required min="1800" max="2024"><br><br>
+        
+        <label for="value">Номінал:</label>
+        <input type="number" id="value" step="0.01" required><br><br>
+        
+        <label for="theme">Тема:</label>
+        <select id="theme" required>
+            <option value="спорт">Спорт</option>
+            <option value="історія">Історія</option>
+            <option value="культура">Культура</option>
+            <option value="тварини">Тварини</option>
+            <option value="технології">Технології</option>
+        </select><br><br>
+        
+        <label for="isTraded">Обміняна:</label>
+        <input type="checkbox" id="isTraded"><br><br>
+
+        <button type="submit">Додати нову марку</button>
+    </form>
+
+    <div class="stamps" id="stampDisplay"></div>
+
+    <div class="controls">
+        <button onclick="let index = prompt('Введіть номер марки для позначення як обміняної') - 1; markStampAsTraded(index);">Позначити марку як обміняну</button>
+        <button onclick="calculateAverageYear()">Обчислити середній рік випуску</button>
+        <button onclick="sortStampsByYear()">Сортувати марки за роком</button>
+        <button onclick="filterUntradedStamps()">Показати необміняні марки</button>
+    </div>
+
+    <div id="untradedStamps"></div>
+
+    <script>
+        displayStampCollection();
+    </script>
+</body>
+</html>

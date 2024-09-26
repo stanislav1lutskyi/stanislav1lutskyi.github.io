@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2: Бібліотека з додатковим функціоналом</title>
+    <script>
+        let library = [
+            { title: "Harry Potter and Sorcerer's Stone", author: "J.K. Rowling", year: 1997, isRead: true, markAsRead: function() { this.isRead = true; } },
+            { title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937, isRead: false, markAsRead: function() { this.isRead = true; } },
+            { title: "1984", author: "George Orwell", year: 1949, isRead: true, markAsRead: function() { this.isRead = true; } }
+        ];
+
+        function displayLibrary() {
+            let output = '';
+            library.forEach((book, index) => {
+                output += `Книга №${index + 1}: Назва: ${book.title}, Автор: ${book.author}, Рік видання: ${book.year}, Прочитана: ${book.isRead ? "Так" : "Ні"}<br>`;
+            });
+            document.getElementById('libraryDisplay').innerHTML = output;
+        }
+
+        function addNewBook() {
+            let title = prompt("Введіть назву книги:");
+            let author = prompt("Введіть автора книги:");
+            let year = parseInt(prompt("Введіть рік видання книги:"));
+            let isRead = confirm("Чи прочитана книга?");
+
+            if (title && author && year) {
+                library.push({
+                    title, 
+                    author, 
+                    year, 
+                    isRead,
+                    markAsRead: function() { this.isRead = true; }
+                });
+                displayLibrary();
+            } else {
+                alert("Будь ласка, введіть коректні дані.");
+            }
+        }
+
+        function markBookAsRead(index) {
+            if (library[index]) {
+                library[index].markAsRead();
+                displayLibrary();
+            } else {
+                alert("Книга з таким номером не існує.");
+            }
+        }
+
+        function calculateAverageYear() {
+            if (library.length === 0) return 0;
+            let totalYears = library.reduce((total, book) => total + book.year, 0);
+            let averageYear = totalYears / library.length;
+            alert(`Середній рік видання книг: ${Math.round(averageYear)}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Завдання 2: Бібліотека</h1>
+    <div id="libraryDisplay"></div>
+    <button onclick="addNewBook()">Додати нову книгу</button>
+    <button onclick="let index = prompt('Введіть номер книги, щоб позначити як прочитану') - 1; markBookAsRead(index);">Позначити книгу як прочитану</button>
+    <button onclick="calculateAverageYear()">Обчислити середній рік видання книг</button>
+
+    <script> displayLibrary(); </script>
+</body>
+</html>
