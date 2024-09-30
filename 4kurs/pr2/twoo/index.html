@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав - ПІ21-03</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            max-width: 600px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .group, .sorted {
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .student {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Групування та сортування студентів</h1>
+
+        <h2>Студенти за групами</h2>
+        <div id="groupedStudents"></div>
+
+        <h2>Студенти за оцінками (спадання)</h2>
+        <div id="sortedStudents"></div>
+    </div>
+
+    <script>
+        const students = [
+            { name: 'Олексій', age: 20, grade: 90, group: 'ПІ21-01' },
+            { name: 'Марія', age: 19, grade: 85, group: 'ПІ21-02' },
+            { name: 'Сергій', age: 21, grade: 78, group: 'ПІ21-01' },
+            { name: 'Вероніка', age: 17, grade: 92, group: 'ПІ21-03' },
+            { name: 'Олег', age: 20, grade: 88, group: 'ПІ21-02' },
+            { name: 'Стас', age: 18, grade: 99, group: 'ПІ21-03' },
+            { name: 'Іван', age: 21, grade: 80, group: 'ПІ21-01' }
+        ];
+
+        function groupBy(students) {
+            return students.reduce((groups, student) => {
+                const group = student.group;
+                if (!groups[group]) {
+                    groups[group] = [];
+                }
+                groups[group].push(student);
+                return groups;
+            }, {});
+        }
+
+        function sortStudentsByGrade(students) {
+            return students.slice().sort((a, b) => b.grade - a.grade);
+        }
+
+        function displayGroupedStudents() {
+            const groupedStudentsDiv = document.getElementById('groupedStudents');
+            const groupedStudents = groupBy(students);
+            groupedStudentsDiv.innerHTML = '';
+
+            for (const group in groupedStudents) {
+                groupedStudentsDiv.innerHTML += `<div class="group">
+                    <h3>Група: ${group}</h3>`;
+                groupedStudents[group].forEach(student => {
+                    groupedStudentsDiv.innerHTML += `<div class="student">
+                        <strong>Ім'я:</strong> ${student.name}, <strong>Вік:</strong> ${student.age}, <strong>Оцінка:</strong> ${student.grade}
+                    </div>`;
+                });
+                groupedStudentsDiv.innerHTML += `</div>`;
+            }
+        }
+
+        function displaySortedStudents() {
+            const sortedStudentsDiv = document.getElementById('sortedStudents');
+            const sortedStudents = sortStudentsByGrade(students);
+            sortedStudentsDiv.innerHTML = '';
+
+            sortedStudents.forEach(student => {
+                sortedStudentsDiv.innerHTML += `<div class="sorted">
+                    <strong>Ім'я:</strong> ${student.name}, <strong>Вік:</strong> ${student.age}, <strong>Оцінка:</strong> ${student.grade}, <strong>Група:</strong> ${student.group}
+                </div>`;
+            });
+        }
+
+        window.onload = function() {
+            displayGroupedStudents();
+            displaySortedStudents();
+        }
+    </script>
+
+</body>
+</html>

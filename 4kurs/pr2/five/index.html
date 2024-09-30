@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав - Замовлення клієнтів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            max-width: 800px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .result {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Загальна сума витрат клієнта</h1>
+
+        <!-- Введення ім'я клієнта для пошуку -->
+        <input type="text" id="customerName" placeholder="Введіть ім'я клієнта">
+        <button onclick="displayTotalSpent()">Порахувати</button>
+
+        <!-- Виведення результату -->
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        // Масив об'єктів orders
+        const orders = [
+            {
+                orderId: 1,
+                customer: { name: 'Іван', email: 'ivan@example.com' },
+                items: ['Смартфон', 'Навушники'],
+                total: 10000
+            },
+            {
+                orderId: 2,
+                customer: { name: 'Марія', email: 'maria@example.com' },
+                items: ['Ноутбук'],
+                total: 30000
+            },
+            {
+                orderId: 3,
+                customer: { name: 'Іван', email: 'ivan@example.com' },
+                items: ['Телевізор', 'Клавіатура'],
+                total: 15000
+            },
+            {
+                orderId: 4,
+                customer: { name: 'Олексій', email: 'oleksii@example.com' },
+                items: ['Планшет'],
+                total: 12000
+            }
+        ];
+
+        // Функція для обчислення загальної суми витрат клієнта
+        function getTotalSpentByCustomer(orders, customerName) {
+            return orders
+                .filter(order => order.customer.name.toLowerCase() === customerName.toLowerCase()) // Фільтруємо замовлення за ім'ям клієнта
+                .reduce((total, order) => total + order.total, 0); // Обчислюємо загальну суму витрат
+        }
+
+        // Функція для виведення результату на екран
+        function displayTotalSpent() {
+            const customerName = document.getElementById('customerName').value;
+            const resultDiv = document.getElementById('result');
+            const totalSpent = getTotalSpentByCustomer(orders, customerName);
+            
+            resultDiv.innerHTML = totalSpent > 0 
+                ? `Клієнт ${customerName} витратив загалом: ${totalSpent} грн`
+                : `Клієнт ${customerName} не знайдений або не має замовлень`;
+        }
+    </script>
+
+</body>
+</html>

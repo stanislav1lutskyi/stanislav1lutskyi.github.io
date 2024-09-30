@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав - Обробка книг</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            max-width: 800px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .result {
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .book {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Обробка та аналіз даних про книги</h1>
+
+        <!-- Виведення непрочитаних книг -->
+        <h2>Непрочитані книги</h2>
+        <div id="unreadBooks" class="result"></div>
+
+        <!-- Виведення книг автора -->
+        <h2>Книги автора</h2>
+        <input type="text" id="authorInput" placeholder="Введіть ім'я автора">
+        <button onclick="displayBooksByAuthor()">Знайти книги автора</button>
+        <div id="booksByAuthor" class="result"></div>
+
+        <!-- Виведення книг з рейтингом вище 4 -->
+        <h2>Книги з рейтингом вище 4</h2>
+        <div id="topRatedBooks" class="result"></div>
+    </div>
+
+    <script>
+        // Масив об'єктів books
+        const books = [
+            { title: 'Старий і море', author: 'Ернест Хемінгуей', year: 1952, rating: 4.5, isRead: true },
+            { title: 'Війна і мир', author: 'Лев Толстой', year: 1869, rating: 4.7, isRead: false },
+            { title: '1984', author: 'Джордж Оруелл', year: 1949, rating: 4.8, isRead: true },
+            { title: 'Злочин і кара', author: 'Федір Достоєвський', year: 1866, rating: 4.6, isRead: false },
+            { title: 'Улісс', author: 'Джеймс Джойс', year: 1922, rating: 3.9, isRead: true },
+            { title: 'Програма на завтра', author: 'Олександр Грін', year: 1919, rating: 4.3, isRead: false }
+        ];
+
+        // Функція для отримання назв непрочитаних книг
+        function getUnreadBooks(books) {
+            return books.reduce((unreadBooks, book) => {
+                if (!book.isRead) {
+                    unreadBooks.push(book.title);
+                }
+                return unreadBooks;
+            }, []);
+        }
+
+        // Функція для отримання книг автора, відсортованих за роком видання
+        function getBooksByAuthor(books, author) {
+            return books
+                .filter(book => book.author.toLowerCase() === author.toLowerCase())
+                .sort((a, b) => a.year - b.year);
+        }
+
+        // Функція для отримання книг з рейтингом вище 4, відсортованих за рейтингом спадання
+        function getTopRatedBooks(books) {
+            return books
+                .filter(book => book.rating > 4)
+                .sort((a, b) => b.rating - a.rating);
+        }
+
+        // Виведення непрочитаних книг на екран
+        function displayUnreadBooks() {
+            const unreadBooksDiv = document.getElementById('unreadBooks');
+            const unreadBooks = getUnreadBooks(books);
+            unreadBooksDiv.innerHTML = unreadBooks.length > 0 
+                ? unreadBooks.map(title => `<div class="book">${title}</div>`).join('')
+                : 'Всі книги прочитані';
+        }
+
+        // Виведення книг автора на екран
+        function displayBooksByAuthor() {
+            const author = document.getElementById('authorInput').value;
+            const booksByAuthorDiv = document.getElementById('booksByAuthor');
+            const booksByAuthor = getBooksByAuthor(books, author);
+            booksByAuthorDiv.innerHTML = booksByAuthor.length > 0 
+                ? booksByAuthor.map(book => `<div class="book">${book.title} (${book.year})</div>`).join('')
+                : `Немає книг автора ${author}`;
+        }
+
+        // Виведення книг з рейтингом вище 4 на екран
+        function displayTopRatedBooks() {
+            const topRatedBooksDiv = document.getElementById('topRatedBooks');
+            const topRatedBooks = getTopRatedBooks(books);
+            topRatedBooksDiv.innerHTML = topRatedBooks.length > 0 
+                ? topRatedBooks.map(book => `<div class="book">${book.title} (Рейтинг: ${book.rating})</div>`).join('')
+                : 'Немає книг з рейтингом вище 4';
+        }
+
+        // Виклик функцій при завантаженні сторінки
+        window.onload = function() {
+            displayUnreadBooks();
+            displayTopRatedBooks();
+        }
+    </script>
+
+</body>
+</html>

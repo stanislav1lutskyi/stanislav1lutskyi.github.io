@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав - Статистичний аналіз працівників</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            max-width: 600px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .result {
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .employee {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Статистичний аналіз працівників</h1>
+
+        <!-- Виведення середньої зарплати -->
+        <h2>Середня зарплата працівників</h2>
+        <div id="averageSalary" class="result"></div>
+
+        <!-- Виведення працівника з найбільшим досвідом -->
+        <h2>Працівник з найбільшим досвідом</h2>
+        <div id="mostExperiencedEmployee" class="result"></div>
+    </div>
+
+    <script>
+        // Масив об'єктів employees
+        const employees = [
+            { name: 'Іван', position: 'Менеджер', salary: 15000, years: 5 },
+            { name: 'Олексій', position: 'Розробник', salary: 25000, years: 8 },
+            { name: 'Марія', position: 'Дизайнер', salary: 20000, years: 4 },
+            { name: 'Анна', position: 'HR', salary: 18000, years: 7 },
+            { name: 'Тетяна', position: 'Тестувальник', salary: 16000, years: 3 }
+        ];
+
+        // Функція для обчислення середньої зарплати працівників
+        function getAverageSalary(employees) {
+            const totalSalary = employees.reduce((sum, employee) => sum + employee.salary, 0);
+            return totalSalary / employees.length;
+        }
+
+        // Функція для знаходження працівника з найбільшим досвідом
+        function findMostExperiencedEmployee(employees) {
+            return employees.reduce((mostExperienced, employee) => {
+                return employee.years > mostExperienced.years ? employee : mostExperienced;
+            });
+        }
+
+        // Виведення середньої зарплати
+        function displayAverageSalary() {
+            const averageSalaryDiv = document.getElementById('averageSalary');
+            const averageSalary = getAverageSalary(employees);
+            averageSalaryDiv.innerHTML = `Середня зарплата: ${averageSalary} грн`;
+        }
+
+        // Виведення працівника з найбільшим досвідом
+        function displayMostExperiencedEmployee() {
+            const mostExperiencedEmployeeDiv = document.getElementById('mostExperiencedEmployee');
+            const mostExperiencedEmployee = findMostExperiencedEmployee(employees);
+            mostExperiencedEmployeeDiv.innerHTML = `
+                <div class="employee">
+                    Ім'я: ${mostExperiencedEmployee.name}<br>
+                    Посада: ${mostExperiencedEmployee.position}<br>
+                    Зарплата: ${mostExperiencedEmployee.salary} грн<br>
+                    Досвід: ${mostExperiencedEmployee.years} років
+                </div>
+            `;
+        }
+
+        // Виклик функцій при завантаженні сторінки
+        window.onload = function() {
+            displayAverageSalary();
+            displayMostExperiencedEmployee();
+        }
+    </script>
+
+</body>
+</html>

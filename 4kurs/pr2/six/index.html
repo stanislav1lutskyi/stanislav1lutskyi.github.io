@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав - Оптимізація продажів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            max-width: 800px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .result {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .product {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Загальна сума продажів по товарам</h1>
+
+        <!-- Виведення результату -->
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        // Масив об'єктів products (товари)
+        const products = [
+            { productId: 1, name: 'Смартфон', price: 15000 },
+            { productId: 2, name: 'Ноутбук', price: 30000 },
+            { productId: 3, name: 'Навушники', price: 2000 },
+            { productId: 4, name: 'Телевізор', price: 25000 }
+        ];
+
+        // Масив об'єктів purchases (покупки)
+        const purchases = [
+            { purchaseId: 1, productId: 1, quantity: 3 },
+            { purchaseId: 2, productId: 2, quantity: 2 },
+            { purchaseId: 3, productId: 3, quantity: 10 },
+            { purchaseId: 4, productId: 4, quantity: 1 },
+            { purchaseId: 5, productId: 1, quantity: 1 }
+        ];
+
+        // Функція для обчислення загальної суми продажів кожного товару
+        function getTotalSales(products, purchases) {
+            return purchases.reduce((sales, purchase) => {
+                const product = products.find(p => p.productId === purchase.productId); // Знаходимо товар за productId
+                if (product) {
+                    const revenue = product.price * purchase.quantity; // Підраховуємо дохід за товар
+                    if (!sales[product.name]) {
+                        sales[product.name] = 0; // Якщо товару ще немає в об'єкті, додаємо його з нульовим доходом
+                    }
+                    sales[product.name] += revenue; // Додаємо дохід від поточної покупки до загального доходу
+                }
+                return sales;
+            }, {});
+        }
+
+        // Функція для виведення результату на екран
+        function displayTotalSales() {
+            const resultDiv = document.getElementById('result');
+            const totalSales = getTotalSales(products, purchases);
+            resultDiv.innerHTML = Object.keys(totalSales).map(productName => 
+                `<div class="product">${productName}: ${totalSales[productName]} грн</div>`
+            ).join('');
+        }
+
+        // Виклик функції при завантаженні сторінки
+        window.onload = function() {
+            displayTotalSales();
+        }
+    </script>
+
+</body>
+</html>

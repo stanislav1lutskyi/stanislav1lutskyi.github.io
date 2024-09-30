@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Луцький Станіслав - ПІ21-03</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            max-width: 600px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .product {
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #searchResult {
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        .product strong {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Список товарів</h1>
+
+        <h2>Товари в наявності</h2>
+        <div id="availableProducts"></div>
+
+        <h2>Знайти товар</h2>
+        <input type="text" id="productName" placeholder="Введіть назву товару">
+        <button onclick="searchProduct()">Знайти</button>
+        <p id="searchResult"></p>
+    </div>
+
+    <script>
+
+        const products = [
+            { name: 'Смартфон', category: 'Електроніка', price: 15000, inStock: 10 },
+            { name: 'Ноутбук', category: 'Електроніка', price: 30000, inStock: 5 },
+            { name: 'Навушники', category: 'Аксесуари', price: 2000, inStock: 0 },
+            { name: 'Чайник', category: 'Побутова техніка', price: 1200, inStock: 7 },
+            { name: 'Кавоварка', category: 'Побутова техніка', price: 4500, inStock: 0 },
+        ];
+
+        function getAvailableProducts(products) {
+            return products.filter(product => product.inStock > 0);
+        }
+
+        function findProductByName(products, productName) {
+            const foundProduct = products.find(product => product.name.toLowerCase() === productName.toLowerCase());
+            return foundProduct ? foundProduct : 'Товар не знайдено';
+        }
+
+        function displayAvailableProducts() {
+            const availableProductsDiv = document.getElementById('availableProducts');
+            const availableProducts = getAvailableProducts(products);
+            availableProductsDiv.innerHTML = '';
+            availableProducts.forEach(product => {
+                availableProductsDiv.innerHTML += `<div class="product">
+                    <strong>Назва:</strong> ${product.name} <br>
+                    <strong>Категорія:</strong> ${product.category} <br>
+                    <strong>Ціна:</strong> ${product.price} грн <br>
+                    <strong>На складі:</strong> ${product.inStock}
+                </div>`;
+            });
+        }
+
+        function searchProduct() {
+            const productName = document.getElementById('productName').value;
+            const result = findProductByName(products, productName);
+            const searchResultDiv = document.getElementById('searchResult');
+
+            if (typeof result === 'object') {
+                searchResultDiv.innerHTML = `<div class="product">
+                    <strong>Назва:</strong> ${result.name} <br>
+                    <strong>Категорія:</strong> ${result.category} <br>
+                    <strong>Ціна:</strong> ${result.price} грн <br>
+                    <strong>На складі:</strong> ${result.inStock}
+                </div>`;
+            } else {
+                searchResultDiv.innerText = result;
+            }
+        }
+
+        window.onload = function() {
+            displayAvailableProducts();
+        }
+    </script>
+
+</body>
+</html>
