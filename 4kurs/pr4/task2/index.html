@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Годинник з секундоміром</title>
+</head>
+<body>
+  <div id="time"></div>
+
+  <script>
+    function addZero(value) {
+      return value < 10 ? "0" + value : value;
+    }
+
+    function time() {
+      let currentTime = new Date();
+      let seconds = addZero(currentTime.getSeconds());
+      let minutes = currentTime.getMinutes();
+      let hours = currentTime.getHours();
+
+      let timeString = seconds + " сек";
+
+      if (minutes > 0) {
+        timeString = addZero(minutes) + " хв " + timeString;
+      }
+
+      if (hours > 0) {
+        timeString = addZero(hours) + " год " + timeString;
+      }
+
+      document.getElementById('time').innerText = timeString;
+
+      setTimeout(time, 1000);
+    }
+
+    time();
+  </script>
+</body>
+</html>

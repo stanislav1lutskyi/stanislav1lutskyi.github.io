@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат ставки</title>
+</head>
+<body>
+
+  <h1>Зробіть ставку</h1>
+  
+  <label for="betAmount">Введіть вашу ставку (гривень):</label>
+  <input type="number" id="betAmount" placeholder="Введіть суму" />
+  
+  <button onclick="placeBet()">Зробити ставку</button>
+
+  <div id="result" style="margin-top: 20px;"></div>
+
+  <script>
+    function placeBet() {
+      const betAmount = parseFloat(document.getElementById('betAmount').value);
+      
+      if (isNaN(betAmount) || betAmount <= 0) {
+        document.getElementById('result').innerText = "Будь ласка, введіть дійсну суму ставки!";
+        return;
+      }
+
+      const randomNum = Math.floor(Math.random() * 11) - 5;
+
+      document.getElementById('result').innerText = "Очікуйте результат...";
+
+      setTimeout(function() {
+        if (randomNum <= 0) {
+          document.getElementById('result').innerText = `На жаль, ви не вгадали! Випало число ${randomNum}.`;
+        } else {
+          const winnings = betAmount * randomNum;
+          document.getElementById('result').innerText = `Вітаємо! Ви виграли ${winnings} гривень. Випало число ${randomNum}.`;
+        }
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ефект друкарської машинки</title>
+    <style>
+        #output {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            white-space: pre-wrap;
+            border: 1px solid black;
+            padding: 10px;
+            width: 400px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+  <h1>Ефект друкарської машинки</h1>
+  
+  <label for="inputText">Введіть фразу:</label>
+  <input type="text" id="inputText" placeholder="Введіть ваш текст тут" />
+  
+  <button onclick="startTyping()">Почати друкування</button>
+
+  <div id="output"></div>
+
+  <script>
+    let textToType = "";
+    let index = 0;
+
+    function startTyping() {
+      textToType = document.getElementById('inputText').value || "Це ефект друкарської машинки!";
+
+      document.getElementById('output').innerText = "";
+      index = 0;
+
+      setTimeout(function() {
+        let typingInterval = setInterval(function() {
+          if (index < textToType.length) {
+            document.getElementById('output').innerText += textToType.charAt(index);
+            index++;
+          } else {
+            clearInterval(typingInterval);
+          }
+        }, 100);
+      }, 500);
+    }
+  </script>
+
+</body>
+</html>
