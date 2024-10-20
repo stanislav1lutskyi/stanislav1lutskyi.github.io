@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2: День тижня</title>
+</head>
+<body>
+    <h1>День тижня для дати: 20 лютого 2021</h1>
+    <p id="weekday-output"></p>
+
+    <script>
+        function getWeekDay(date) {
+            const days = ['НД', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+            return days[date.getDay()];
+        }
+
+        let dateExample = new Date(2021, 1, 20);
+        document.getElementById('weekday-output').textContent = getWeekDay(dateExample);
+    </script>
+</body>
+</html>

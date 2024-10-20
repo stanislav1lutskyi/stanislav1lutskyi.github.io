@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Генератор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #block {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .tab {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-right: 5px;
+            background-color: #f4f4f4;
+        }
+        .tab.active {
+            background-color: white;
+            border-bottom: none;
+        }
+        .tabContent {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .tabContent.active {
+            display: block;
+        }
+        .inputRow {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>CSS Генератор</h1>
+
+<div class="tabs">
+    <div class="tab active" data-tab="borderRadiusTab">border-radius</div>
+    <div class="tab" data-tab="fontTab">font-style & letter-spacing</div>
+</div>
+
+<div class="tabContents">
+    <div id="borderRadiusTab" class="tabContent active">
+        <div class="inputRow">
+            <label>Верхній лівий радіус:</label>
+            <input type="range" id="topLeft" min="0" max="100" value="20" oninput="generate()">
+            <input type="number" id="topLeftValue" value="20" readonly>
+        </div>
+        <div class="inputRow">
+            <label>Верхній правий радіус:</label>
+            <input type="range" id="topRight" min="0" max="100" value="30" oninput="generate()">
+            <input type="number" id="topRightValue" value="30" readonly>
+        </div>
+        <div class="inputRow">
+            <label>Нижній правий радіус:</label>
+            <input type="range" id="bottomRight" min="0" max="100" value="40" oninput="generate()">
+            <input type="number" id="bottomRightValue" value="40" readonly>
+        </div>
+        <div class="inputRow">
+            <label>Нижній лівий радіус:</label>
+            <input type="range" id="bottomLeft" min="0" max="100" value="10" oninput="generate()">
+            <input type="number" id="bottomLeftValue" value="10" readonly>
+        </div>
+        <div id="block"></div>
+        <textarea id="cssCode" rows="2" cols="50"></textarea>
+    </div>
+
+    <div id="fontTab" class="tabContent">
+        <div class="inputRow">
+            <label for="fontStyle">font-style:</label>
+            <select id="fontStyle" onchange="generateFontStyle()">
+                <option value="normal">normal</option>
+                <option value="italic">italic</option>
+                <option value="oblique">oblique</option>
+            </select>
+        </div>
+        <div class="inputRow">
+            <label for="letterSpacing">letter-spacing:</label>
+            <input type="range" id="letterSpacing" min="0" max="20" value="0" oninput="generateFontStyle()">
+            <input type="number" id="letterSpacingValue" value="0" readonly>
+        </div>
+        <div id="fontBlock" style="width: 200px; height: 100px; background-color: #ddd; font-size: 24px; display: flex; align-items: center; justify-content: center;">
+            Текст прикладу
+        </div>
+        <textarea id="fontCssCode" rows="2" cols="50"></textarea>
+    </div>
+</div>
+
+<script>
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tabContent');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+
+    function generate() {
+        const topLeft = document.getElementById('topLeft').value;
+        const topRight = document.getElementById('topRight').value;
+        const bottomRight = document.getElementById('bottomRight').value;
+        const bottomLeft = document.getElementById('bottomLeft').value;
+
+        document.getElementById('topLeftValue').value = topLeft;
+        document.getElementById('topRightValue').value = topRight;
+        document.getElementById('bottomRightValue').value = bottomRight;
+        document.getElementById('bottomLeftValue').value = bottomLeft;
+
+        const block = document.getElementById('block');
+        block.style.borderRadius = `${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px`;
+
+        document.getElementById('cssCode').value = `border-radius: ${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px;`;
+    }
+
+    function generateFontStyle() {
+        const fontStyle = document.getElementById('fontStyle').value;
+        const letterSpacing = document.getElementById('letterSpacing').value;
+
+        document.getElementById('letterSpacingValue').value = letterSpacing;
+
+        const fontBlock = document.getElementById('fontBlock');
+        fontBlock.style.fontStyle = fontStyle;
+        fontBlock.style.letterSpacing = `${letterSpacing}px`;
+
+        document.getElementById('fontCssCode').value = `font-style: ${fontStyle};\nletter-spacing: ${letterSpacing}px;`;
+    }
+
+    generate();
+    generateFontStyle();
+</script>
+
+</body>
+</html>

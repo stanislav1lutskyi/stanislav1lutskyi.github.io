@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 4: Секунди до завтра</title>
+</head>
+<body>
+    <h1>Кількість секунд до завтра</h1>
+    <p id="seconds-output"></p>
+
+    <script>
+        function getSecondsToTomorrow() {
+            let now = new Date();
+            let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+            let diff = tomorrow - now;
+            return Math.floor(diff / 1000);
+        }
+
+        let seconds = getSecondsToTomorrow();
+        document.getElementById('seconds-output').textContent = seconds;
+    </script>
+</body>
+</html>

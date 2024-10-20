@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3: Останній день місяця</title>
+</head>
+<body>
+    <h1>Останній день місяця для лютого 2020 року</h1>
+    <p id="last-day-output"></p>
+
+    <script>
+        function getLastDayOfMonth(year, month) {
+            let date = new Date(year, month + 1, 0);
+            return date.getDate();
+        }
+
+        let lastDay = getLastDayOfMonth(2020, 1);
+        document.getElementById('last-day-output').textContent = lastDay;
+    </script>
+</body>
+</html>

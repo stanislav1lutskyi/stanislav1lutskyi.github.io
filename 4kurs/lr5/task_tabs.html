@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вкладки на сторінці</title>
+    <style>
+        .tab {
+            padding: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+
+        .tabContent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .whiteborder {
+            border-top: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Вкладки</h1>
+<div id="tabs">
+    <div class="tab">Вкладка 1</div>
+    <div class="tab">Вкладка 2</div>
+    <div class="tab">Вкладка 3</div>
+</div>
+
+<div id="tabContents">
+    <div class="tabContent">Вміст першої вкладки</div>
+    <div class="tabContent">Вміст другої вкладки</div>
+    <div class="tabContent">Вміст третьої вкладки</div>
+</div>
+
+<script>
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tabContent');
+
+    function hideTabsContent() {
+        tabContents.forEach(content => {
+            content.classList.remove('show');
+        });
+        tabs.forEach(tab => {
+            tab.classList.remove('whiteborder');
+        });
+    }
+
+    function showTabsContent(index) {
+        hideTabsContent();
+        tabContents[index].classList.add('show');
+        tabs[index].classList.add('whiteborder');
+    }
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => showTabsContent(index));
+    });
+
+    showTabsContent(0);
+</script>
+
+</body>
+</html>
