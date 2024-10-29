@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1</title>
+  <style>
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Сума випадкових чисел</h1>
+  
+  <button onclick="calculateSum()">Розрахувати суму</button>
+  
+  <div id="result"></div>
+
+  <script>
+    function getRandomNumberWithDelay(delay) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const randomNumber = Math.floor(Math.random() * 10) + 1;
+          resolve(randomNumber);
+        }, delay);
+      });
+    }
+
+    function calculateSum() {
+      const promises = [
+        getRandomNumberWithDelay(1000),
+        getRandomNumberWithDelay(2000),
+        getRandomNumberWithDelay(3000)
+      ];
+
+      document.getElementById('result').textContent = "Очікуйте результат...";
+
+      Promise.all(promises)
+        .then(results => {
+          const sum = results.reduce((acc, num) => acc + num, 0);
+          document.getElementById("result").textContent = `Сума всіх значень: ${sum}`;
+        })
+        .catch(error => {
+          document.getElementById("result").textContent = `Помилка: ${error}`;
+        });
+    }
+  </script>
+</body>
+</html>
