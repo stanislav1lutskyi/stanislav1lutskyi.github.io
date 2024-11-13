@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформлення замовлення - Автомобільні запчастини</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Автомобільні запчастини</h1>
+        <div class="cart-icon">
+            <span class="cart-count">0</span>
+            <button onclick="openCart()">Корзина</button>
+        </div>
+    </header>
+
+    <div class="wrap">
+        <div class="card">
+            <a href="#" class="category">Двигун</a>
+            <hr>
+            <div class="photo-block">
+                <img src="https://img.dok.ua/images/org/product/1121/04/99572_1.jpg" alt="Масляний фільтр" class="photo">
+            </div>
+            <a href="#" class="name">Масляний фільтр</a>
+            <div><span class="price">200 грн</span></div>
+            <button class="sale-button" onclick="addToCart('Масляний фільтр', 200)">У корзину</button>
+        </div>
+
+        <div class="card">
+            <a href="#" class="category">Підвіска та Кермове</a>
+            <hr>
+            <div class="photo-block">
+                <img src="https://img.dok.ua/images/resource/kayaba/242/854/222476_2.jpg" alt="Амортизатор" class="photo">
+            </div>
+            <a href="#" class="name">Амортизатор</a>
+            <div><span class="old-price">1 175 грн</span> <span class="price">1 075 грн</span></div>
+            <button class="sale-button" onclick="addToCart('Амортизатор', 1075)">У корзину</button>
+        </div>
+
+        <div class="card">
+            <a href="#" class="category">Охолодження та Опалювання</a>
+            <hr>
+            <div class="photo-block">
+                <img src="https://img.dok.ua/images/resource/dolz/339/1260/116386_1.jpg" alt="Помпа Dolz" class="photo">
+            </div>
+            <a href="#" class="name">Помпа Dolz</a>
+            <div><span class="price">815 грн</span></div>
+            <button class="sale-button" onclick="addToCart('Помпа Dolz', 815)">У корзину</button>
+        </div>
+
+        <div class="card">
+            <a href="#" class="category">Кузов і Складові</a>
+            <hr>
+            <div class="photo-block">
+                <img src="https://img.dok.ua/images/org/product/0320/19/268773_1.jpg" alt="Газовий упор багажника" class="photo">
+            </div>
+            <a href="#" class="name">Газовий упор багажника</a>
+            <div><span class="price">324 грн</span></div>
+            <button class="sale-button" onclick="addToCart('Газовий упор багажника', 324)">У корзину</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="quantityModal">
+        <div class="message-box">
+            <span class="close" onclick="closeModal('quantityModal')">&times;</span>
+            <p>Вкажіть кількість:</p>
+            <input type="number" id="quantityInput" min="1" value="1">
+            <button onclick="confirmAddToCart()">Додати до корзини</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="cartNotification">
+        <div class="message-box">
+            <span class="close" onclick="closeModal('cartNotification')">&times;</span>
+            <p>Товар додано</p>
+            <button onclick="openCart()">Перейти у корзину</button>
+            <button onclick="closeModal('cartNotification')">Повернутись до покупок</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="cartOverlay">
+        <div class="message-box">
+            <span class="close" onclick="closeModal('cartOverlay')">&times;</span>
+            <h2>Корзина</h2>
+            <div id="cartItems"></div>
+            <p>Загальна вартість: <span id="totalPrice">0</span> грн</p>
+            <button onclick="closeModal('cartOverlay')">Повернутись до покупок</button>
+            <button onclick="proceedToCheckout()">Оформити замовлення</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="checkoutOverlay">
+        <div class="message-box checkout-box">
+            <span class="close" onclick="closeModal('checkoutOverlay')">&times;</span>
+            <h2>Оформлення замовлення</h2>
+
+            <div class="form-section">
+                <h3>Дані клієнта</h3>
+                <label>Ім'я:<input type="text" id="customerName" required></label>
+                <label>Телефон:<input type="tel" id="customerPhone" placeholder="+380" pattern="^\+?\d{10,13}$" required></label>
+                <label>Електронна пошта:<input type="email" id="customerEmail" required></label>
+            </div>
+
+            <div class="form-section">
+                <h3>Оплата</h3>
+                <label><input type="radio" name="paymentMethod" value="card" onclick="showCardPayment()"> Карткою</label>
+                <label><input type="radio" name="paymentMethod" value="cash" onclick="hideCardPayment()"> Готівкою</label>
+                
+                <div id="cardPaymentDetails" style="display: none;">
+                    <label>Номер картки:<input type="text" id="cardNumber" pattern="\d{16}" placeholder="0000 0000 0000 0000" required></label>
+                    <label>Термін дії:<input type="text" id="cardExpiry" placeholder="MM/YY" required></label>
+                    <label>CVV:<input type="text" id="cardCvv" pattern="\d{3}" placeholder="000" required></label>
+                </div>
+            </div>
+            <div class="form-section">
+                <h3>Доставка</h3>
+                <label><input type="radio" name="deliveryMethod" value="pickup" onclick="hideDeliveryDetails()"> Самовивіз</label>
+                <label><input type="radio" name="deliveryMethod" value="novaPoshta" onclick="showDeliveryDetails()"> Нова Пошта</label>
+                <label><input type="radio" name="deliveryMethod" value="ukrPoshta" onclick="showDeliveryDetails()"> УкрПошта</label>
+                
+                <div id="deliveryDetails" style="display: none;">
+                    <label>Місто:<input type="text" id="city" required></label>
+                    <label>Відділення:<input type="text" id="branch" required></label>
+                </div>
+            </div>
+
+            <button onclick="submitOrder()">Підтвердити замовлення</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
