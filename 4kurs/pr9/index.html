@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформлення замовлення - Автомобільні запчастини</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Автомобільні запчастини</h1>
+        <div class="cart-icon">
+            <span class="cart-count">0</span>
+            <button onclick="openCart()">Корзина</button>
+        </div>
+    </header>
+
+    <div class="wrap"></div>
+
+    <div class="cart-icon">
+        <span class="cart-count">0</span>
+        <button onclick="openCart()">Корзина</button>
+    </div>
+    <div class="overlay" id="cartOverlay">
+        <div class="message-box">
+            <span class="close" onclick="closeModal('cartOverlay')">&times;</span>
+            <h2>Корзина</h2>
+            <div id="cartItems"></div>
+            <p>Загальна вартість: <span id="totalPrice">0</span> грн</p>
+            <button onclick="proceedToCheckout()">Оформити замовлення</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="checkoutOverlay">
+        <div class="message-box checkout-box">
+            <span class="close" onclick="closeModal('checkoutOverlay')">&times;</span>
+            <h2>Оформлення замовлення</h2>
+            
+            <!-- Форма для введення даних -->
+            <form id="orderForm">
+                <div class="form-section">
+                    <label for="fullName">ПІБ:</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-section">
+                    <label for="phone">Номер телефону:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-section">
+                    <label for="email">Електронна пошта:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-section">
+                    <label for="address">Адреса доставки:</label>
+                    <input type="text" id="address" required>
+                </div>
+                <button type="button" onclick="submitOrder()">Підтвердити замовлення</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script/script.js"></script>
+</body>
+</html>
