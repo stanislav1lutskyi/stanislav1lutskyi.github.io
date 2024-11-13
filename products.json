@@ -1,0 +1,54 @@
+{
+  "title": "Автомобільні запчастини",
+  "products": [
+    {
+      "category": "Двигун",
+      "name": "Масляний фільтр",
+      "price": 200,
+      "image": "https://img.dok.ua/images/org/product/1121/04/99572_1.jpg"
+    },
+    {
+      "category": "Підвіска та Кермове",
+      "name": "Амортизатор",
+      "price": 1075,
+      "oldPrice": 1175,
+      "image": "https://img.dok.ua/images/resource/kayaba/242/854/222476_2.jpg"
+    },
+    {
+      "category": "Охолодження та Опалювання",
+      "name": "Помпа Dolz",
+      "price": 815,
+      "image": "https://img.dok.ua/images/resource/dolz/339/1260/116386_1.jpg"
+    },
+    {
+      "category": "Кузов і Складові",
+      "name": "Газовий упор багажника",
+      "price": 324,
+      "image": "https://img.dok.ua/images/org/product/0320/19/268773_1.jpg"
+    },
+    {
+      "category": "Електрика та Освітлення",
+      "name": "Свічка запалювання Bosch",
+      "price": 150,
+      "image": "https://img.dok.ua/images/org/product/1635/08/1185708_1.jpg"
+    },
+    {
+      "category": "Гальмівна система",
+      "name": "Гальмівні колодки ATE",
+      "price": 600,
+      "image": "https://img.dok.ua/images/org/product/2005/15/295671_1.jpg"
+    },
+    {
+      "category": "Фільтри та Рідини",
+      "name": "Повітряний фільтр Mann",
+      "price": 250,
+      "image": "https://img.dok.ua/images/org/product/1284/01/135401_1.jpg"
+    },
+    {
+      "category": "Шини та Диски",
+      "name": "Літня шина Michelin",
+      "price": 2200,
+      "image": "https://img.dok.ua/images/org/product/1104/16/497103_1.jpg"
+    }
+  ]
+}
